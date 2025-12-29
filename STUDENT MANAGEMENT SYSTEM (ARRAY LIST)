@@ -1,0 +1,9 @@
+import java.util.*;
+class Student {
+    String name;
+    int id;
+    Student(String n, int i) { name = n; id = i; }
+}
+public class StudentSystem {
+    public static void main(String[] args) {
+        ArrayList<Student> list
