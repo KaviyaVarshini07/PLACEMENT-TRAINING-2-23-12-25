@@ -1,0 +1,29 @@
+class Node {
+    int data;
+    Node left, right;
+    Node(int val) { data = val; }
+}
+public class BST {
+    Node root;
+    void insert(int val) { root = insertRec(root, val); }
+    Node insertRec(Node root, int val) {
+        if(root == null) return new Node(val);
+        if(val < root.data) root.left = insertRec(root.left, val);
+        else if(val > root.data) root.right = insertRec(root.right, val);
+        return root;
+    }
+    void inorder(Node root) {
+        if(root != null) {
+            inorder(root.left);
+            System.out.print(root.data + " ");
+            inorder(root.right);
+        }
+    }
+    public static void main(String[] args) {
+        BST tree = new BST();
+        tree.insert(50);
+        tree.insert(30);
+        tree.insert(70);
+        tree.inorder(tree.root);
+    }
+}
