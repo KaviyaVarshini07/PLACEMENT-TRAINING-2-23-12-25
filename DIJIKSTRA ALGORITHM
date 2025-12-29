@@ -1,0 +1,21 @@
+import java.util.*;
+public class Dijkstra {
+    public static void main(String[] args) {
+        int[][] graph = {
+            {0, 1, 4},
+            {1, 0, 2},
+            {4, 2, 0}
+        };
+        int[] dist = new int[3];
+        Arrays.fill(dist, Integer.MAX_VALUE);
+        dist[0] = 0;
+        for(int i=0;i<3;i++) {
+            for(int j=0;j<3;j++) {
+                if(graph[i][j] != 0 && dist[j] > dist[i] + graph[i][j]) {
+                    dist[j] = dist[i] + graph[i][j];
+                }
+            }
+        }
+        System.out.println("Shortest distances: " + Arrays.toString(dist));
+    }
+}
